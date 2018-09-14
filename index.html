@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="demo.css" />
+        <link rel="stylesheet" type="text/css" href="backgroundTransition.css" />
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <title>SIPPING</title>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style type="text/css">
+        .login_box {
+            width: 500px;
+            height: 45%;
+            margin: 50px auto;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 60px;
+            background-color: #ffffff;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 10%;
+        }
+
+        #middle {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+
+        }
+
+        </style>
+    </head>
+ 
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+        
+        <div class="backgroundTransition">
+        <img src="title_header.png" style="margin-left: auto; margin-right: auto; margin-top: 30px; display: block; width: 600px;">
+        <div class="login_box">
+            <form class="col s12" action="./php/login_check.php" method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="email" id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="password" id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn-large deep-purple" id="middle" type="submit"><i class="material-icons left">cloud</i>Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 40px;">아직 회원이 아니신가요?</p>
+            <a class="waves-effect waves-light btn N/A transparent z-depth-0" style="text-align: center; display: block; margin-top: -10px;" href="join.html">회원가입</a>
+        </div>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="backgroundTransition.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+            $('.backgroundTransition').backgroundTransition({
+                backgrounds:[
+                    { src: 'index_1.jpg' },
+                    { src: 'index_2.jpg' },
+                    { src: 'index_3.jpg' }
+                    ],
+                    transitionDelay: 3,
+                    animationSpeed: 800
+                });
+            });
+</script>
+    </body>
+</html>

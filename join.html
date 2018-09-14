@@ -1,0 +1,113 @@
+<html>
+<head>
+	<!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+ 
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>SIPPING/Join</title>
+        <style>
+        html 
+        {
+            background-color: #ede7f6;
+        }
+
+        div.join_box {
+            width: 500px;
+            height: 65%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            display: block;
+            padding-left: 60px;
+            padding-top: 60px;
+            background-color: #ffffff;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 10%;
+        }
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript">
+        function mysubmit(num)
+        {
+            
+            if(num == 2)
+            {
+                document.myform.action='./php/add_user.php';
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <img src="title_header.png" style="margin-left: auto; margin-right: auto; margin-top: 30px; display: block; width: 600px;">
+	<div class="join_box">
+            <form class="col s12" method="post" name="myform" enctype="multipart/form-data">
+            	<div class="row">
+                    <div class="input-field col s10">
+                        <input type="text" class="validate" id="name" name="name">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="input-field col s6">
+                        <input type="email" class="validate" id="email" name="email">
+                        <label for="email">Email</label>
+                    </span>
+                    <button class="btn waves-effect waves-light purple lighten-3" id="check" name="action" style="margin-top: 23px; margin-left: 18px;" type="button">Check !
+  					</button>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10">
+                        <input id="password" type="password" class="validate" name="password">
+                        <label for="password">Password</label>
+                        <br><span id="message1"></span><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10">
+                        <input id="phone" type="tel" class="validate" name="phone" pattern = "\d{3}-\d{3,4}-\d{4}" title="'-'를 포함하여 입력해주세요">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                </div>
+                <div class="file-field input-field" style="margin-left: 10px;">
+                    <div class="btn purple lighten-3">
+                        <span>File</span>
+                        <input type="file" name="upload">
+                    </div>
+                </div>
+                <div style="height: 40px; width: 250px; margin-top: 30px; margin-left: 100px; padding-left: 20px;">당신의 프로필을 설정해보세요
+                </div>
+                <button class="btn waves-effect deep-purple" type="submit" name="action" onclick="mysubmit(2)" style="margin-left: 120px; margin-top: 20px;">J O I N
+    				<i class="material-icons right">mood</i>
+  				</button>
+            </form>
+        </div>
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+        <script type="text/javascript">
+        $('#check').click(function() {
+            $.ajax({
+                url: './php/overlap_check.php',
+                type: 'post',
+                data: {
+                    'name': $('#name').val(),
+                    'email': $('#email').val()
+                },
+                success: function(data){
+                    console.log(data);
+                    if(data == 'success')
+                        alert('사용할 수 있는 이메일입니다')
+                    else
+                        alert('이미 있는 이메일입니다')
+                    }
+                })
+            })
+        </script>
+</body>
+</html>
